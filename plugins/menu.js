@@ -19,8 +19,6 @@ exports.run = {
          const local_size = fs.existsSync('./' + env.database + '.json') ? await Func.getSize(fs.statSync('./' + env.database + '.json').size) : ''
          const library = JSON.parse(require('fs').readFileSync('./package.json', 'utf-8'))
          const message = setting.msg.replace('+tag', `@${m.sender.replace(/@.+/g, '')}`).replace('+name', m.pushName).replace('+greeting', Func.greeting()).replace('+db', (process.env.DATABASE_URL ? 'Mongo' : `Local (${local_size})`)).replace('+version', (library.dependencies.bails ? library.dependencies.bails : library.dependencies['@adiwajshing/baileys'] ? '@adiwajshing/baileys' : library.dependencies.baileys).replace('^', '').replace('~', ''))
-         const song = './media/song1.mp3'
-         client.sendFile(m.chat, song,'audio.mp3',"", m,{ptt: true})
          const style = setting.style
          if (style === 1) {
             let filter = Object.entries(plugins).filter(([_, obj]) => obj.run.usage)

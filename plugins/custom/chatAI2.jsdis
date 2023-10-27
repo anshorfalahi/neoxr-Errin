@@ -45,7 +45,7 @@ exports.run = {
                	client.sendReact(m.chat, '🕒', m.key)
  
                const openai = new OpenAI({
-                 	apiKey: "________"
+                 	apiKey: "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"
                })
                const json = await openai.chat.completions.create({
                   model: 'gpt-3.5-turbo',
@@ -103,7 +103,7 @@ exports.run = {
                	client.sendReact(m.chat, '🕒', m.key)
  
                const openai = new OpenAI({
-                 	apiKey: "_____"
+                 	apiKey: "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"
                })
                const json = await openai.chat.completions.create({
                   model: 'gpt-3.5-turbo',
