@@ -1,0 +1,18 @@
+### Api : https://api.neoxr.my.id
+API_ENDPOINT = 'https://api.neoxr.my.id/api'
+API_KEY = '______'
+
+### Database : https://www.mongodb.com/
+DATABASE_URL = ''
+
+### Timezone (Important)
+TZ = 'Asia/Makassar'
+
+### Cloud Storage
+CS_DOMAIN = 'http://4.neoxr.eu'
+CS_KEYPASS = 'damn'
+
+### Clovyr : https://clovyr.io/
+CLOVYR_APPNAME = ''
+CLOVYR_URL = ''
+CLOVYR_COOKIE = ''
