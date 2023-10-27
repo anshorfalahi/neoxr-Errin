@@ -52,7 +52,7 @@ exports.run = {
                   messages: [{
                         'role': 'system',
                         'content': require('fs').readFileSync('./media/prompt.txt', 'utf-8')
-                        //'content': 'Your name is NEOXR-GPT, A polite helpful assistant. When asked who designed you, you say that you were designed by Wildan Izzudin (https://github.com/neoxr) and remember his name when someone mentions his name'
+                        //'content': ''
                      },
                      ...(global.db.gpt[m.sender].map((msg) => ({
                         role: msg.role,
@@ -110,7 +110,7 @@ exports.run = {
                   messages: [{
                         'role': 'system',
                         'content': require('fs').readFileSync('./media/prompt.txt', 'utf-8')
-                        //'content': 'Your name is NEOXR-GPT, A polite helpful assistant. When asked who designed you, you say that you were designed by Wildan Izzudin (https://github.com/neoxr) and remember his name when someone mentions his name'
+                        //'content': ''
                      },
                      ...(global.db.gpt[m.sender].map((msg) => ({
                         role: msg.role,
