@@ -1,0 +1,18 @@
+{
+   "owner": "6283832155266",
+   "owner_name": "Reine",
+   "database": "lucemia",
+   "limit": 8,
+   "ram_limit": "900mb",
+   "max_upload": 50,
+   "max_upload_free": 10,
+   "cooldown": 3,
+   "timer": 180000,
+   "timeout": 1800000,
+   "blocks": ["994", "91", "92"],
+   "evaluate_chars":  ["=>", "~>", "<", ">", "$"],
+   "pairing": {
+      "state": true,
+      "number": 6283893900755
+   }
+}
