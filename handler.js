@@ -24,7 +24,7 @@ module.exports = async (client, ctx) => {
       if (!setting.online) client.sendPresenceUpdate('unavailable', m.chat)
       if (setting.online) {
          client.sendPresenceUpdate('available', m.chat)
-         client.readMessages([m.key])
+         //client.readMessages([m.key])
       }
       if (m.isGroup && !isBotAdmin) {
          groupSet.localonly = false

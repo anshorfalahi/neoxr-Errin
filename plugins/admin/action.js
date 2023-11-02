@@ -1,5 +1,5 @@
 exports.run = {
-   usage: ['add', 'promote', 'demote', 'kick'],
+   usage: ['add', 'promote', 'demote', 'kicked'],
    use: 'mention or reply',
    category: 'admin tools',
    async: async (m, {
