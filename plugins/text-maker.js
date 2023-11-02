@@ -11,7 +11,7 @@ exports.run = {
    }) => {
       try {
          if (!text) return client.reply(m.chat, Func.example(isPrefix, command, 'neoxr bot'), m)
-         if (text.length > 10) return client.reply(m.chat, Func.texted('bold', `🚩 Text is too long max 10 characters.`), m)
+         if (text.length > 20) return client.reply(m.chat, Func.texted('bold', `🚩 Text is too long max 10 characters.`), m)
          let old = new Date()
          await client.sendReact(m.chat, '🕒', m.key)
          const json = await Api.neoxr(`/${command.toLowerCase()}`, {
