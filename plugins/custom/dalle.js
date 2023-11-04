@@ -1,7 +1,7 @@
 exports.run = {
   usage: ['dalle'],
   use: 'prompt',
-  category: 'utilities',
+  category: 'img-ai-gen',
   async: async (m, {
      client,
      text,
