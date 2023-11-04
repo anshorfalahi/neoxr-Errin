@@ -29,6 +29,7 @@
       "canvas": "^2.11.2",
       "cfonts": "3.1.1",
       "express": "~4.16.4",
+      "ffmpeg": "^0.0.4",
       "json-stable-stringify": "^1.0.2",
       "mongodb": "^6.1.0",
       "network-speed": "^2.1.1",
