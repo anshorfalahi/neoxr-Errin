@@ -2,7 +2,7 @@ exports.run = {
    usage: ['pesan'],
    hidden: ['msg'],
    use: 'text',
-   category: 'utilities',
+   category: 'mail',
    async: async (m, {
       client,
       text,
