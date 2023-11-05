@@ -2,7 +2,7 @@ exports.run = {
    usage: ['menfess'],
    hidden: ['menfes', 'confes', 'confess'],
    use: '628xxx | ayu | i love u',
-   category: 'utilities',
+   category: 'mail',
    async: async (m, {
       client,
       text,
