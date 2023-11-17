@@ -1,5 +1,5 @@
 exports.run = {
-  usage: ['reminiv2'],
+  usage: ['reminiv6'],
   use: 'reply photo',
   category: 'utilities',
   async: async (m, {
@@ -15,7 +15,7 @@ exports.run = {
             client.sendReact(m.chat, '🕒', m.key)
             let img = await client.downloadMediaMessage(q)
             let image = await Scraper.uploadImageV2(img)
-            const json = await Func.fetchJson(`https://aemt.me/remini?url=${image.data.url}&resolusi=4`)
+            const json = await Func.fetchJson(`https://aemt.me/remini?url=${image.data.url}&resolusi=10`)
             let result = json.url
             let caption = json.time_taken
             client.sendFile(m.chat, result.url, 'image.png', caption, m)
@@ -28,7 +28,7 @@ exports.run = {
          client.sendReact(m.chat, '🕒', m.key)
          let img = await q.download()
          let image = await Scraper.uploadImageV2(img)
-         const json = await Func.fetchJson(`https://aemt.me/remini?url=${image.data.url}&resolusi=4`)
+         const json = await Func.fetchJson(`https://aemt.me/remini?url=${image.data.url}&resolusi=10`)
          let result = json.url
          let caption = json.time_taken
          client.sendFile(m.chat, result.url, 'image.png', caption, m)
@@ -38,8 +38,8 @@ exports.run = {
    }
   },
   error: false,
+  owner: true,
   limit: true,
-  premium: true,
   cache: true,
   location: __filename
 }
