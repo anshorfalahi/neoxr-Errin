@@ -1,5 +1,5 @@
 exports.run = {
-   usage: ['+owner', '-owner', '-prem', 'block', 'unblock', 'ban', 'unban'],
+   usage: ['+owner', '-owner', '-prem', 'block', 'unblock', 'ban', 'unban', '-seller'],
    use: 'mention or reply',
    category: 'owner',
    async: async (m, {
@@ -36,7 +36,14 @@ exports.run = {
             data.premium = false
             data.expired = 0
             client.reply(m.chat, Func.texted('bold', `🚩 @${jid.replace(/@.+/, '')}'s premium status has been successfully deleted.`), m)
-         } else if (command == 'block') { // block user
+         }else if (command == '-seller') { // remove seller
+            let data = global.db.users.find(v => v.jid == jid)
+            if (typeof data == 'undefined') return client.reply(m.chat, Func.texted('bold', `🚩 Can't find user data.`), m)
+            if (!data.seller) return client.reply(m.chat, Func.texted('bold', `🚩 Not a seller account.`), m)
+            data.seller = false
+            data.expiredseller = 0
+            client.reply(m.chat, Func.texted('bold', `🚩 @${jid.replace(/@.+/, '')}'s seller status has been successfully deleted.`), m)
+         }else if (command == 'block') { // block user
             if (jid == client.decodeJid(client.user.id)) return client.reply(m.chat, Func.texted('bold', `🚩 ??`), m)
             client.updateBlockStatus(jid, 'block').then(res => m.reply(Func.jsonFormat(res)))
          } else if (command == 'unblock') { // unblock user

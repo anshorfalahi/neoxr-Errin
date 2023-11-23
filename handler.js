@@ -10,6 +10,7 @@ module.exports = async (client, ctx) => {
       require('./lib/system/schema')(m, env) /* input database */
       const isOwner = [client.decodeJid(client.user.id).split`@` [0], env.owner, ...global.db.setting.owners].map(v => v + '@s.whatsapp.net').includes(m.sender)
       const isPrem = (global.db.users.some(v => v.jid == m.sender) && global.db.users.find(v => v.jid == m.sender).premium)
+      const isSeller = (global.db.users.some(v => v.jid == m.sender) && global.db.users.find(v => v.jid == m.sender).seller)
       const groupMetadata = m.isGroup ? await client.groupMetadata(m.chat) : {}
       const participants = m.isGroup ? groupMetadata.participants : [] || []
       const adminList = m.isGroup ? await client.groupAdmin(m.chat) : [] || []
@@ -132,6 +133,10 @@ module.exports = async (client, ctx) => {
             }
             if (cmd.premium && !isPrem) {
                client.reply(m.chat, global.status.premium, m)
+               continue
+            }
+            if (cmd.seller && !isSeller) {
+               client.reply(m.chat, global.status.seller, m)
                continue
             }
             if (cmd.limit && users.limit < 1) {

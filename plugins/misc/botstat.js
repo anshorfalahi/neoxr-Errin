@@ -16,6 +16,7 @@ exports.run = {
          let groups = await (await groupList()).map(v => v.id).length
          let banned = global.db.users.filter(v => v.banned).length
          let premium = global.db.users.filter(v => v.premium).length
+         let seller = global.db.users.filter(v => v.seller).length
          class Hit extends Array {
             total(key) {
                return this.reduce((a, b) => a + (b[key] || 0), 0)
@@ -57,6 +58,7 @@ const statistic = (Func, stats, system) => {
 │  ◦  ${Func.texted('bold', Func.formatNumber(stats.banned))} Users Banned
 │  ◦  ${Func.texted('bold', Func.formatNumber(stats.blocked))} Users Blocked
 │  ◦  ${Func.texted('bold', Func.formatNumber(stats.premium))} Premium Users
+│  ◦  ${Func.texted('bold', Func.formatNumber(stats.seller))} Seller Users
 │  ◦  ${Func.texted('bold', Func.formatNumber(stats.hitstat))} Commands Hit
 └  ◦  Runtime : ${Func.texted('bold', stats.uptime)}
 

@@ -1,5 +1,5 @@
 exports.run = {
-  usage: ['listban', 'listprem', 'listblock'],
+  usage: ['listban', 'listprem', 'listblock', 'listseller'],
   category: 'miscs',
   async: async (m, {
     client,
@@ -37,6 +37,21 @@ exports.run = {
         }
       }).join('\n')
       m.reply(text)
+    }else if (command === 'listseller') {
+      if (!isOwner) return m.reply(global.status.owner)
+      const data = global.db.users.filter(v => v.seller)
+      if (data.length < 1) return m.reply(Func.texted('bold', `🚩 Data empty.`))
+      let text = `乂 *L I S T S E L L E R*\n\n`
+      text += data.map((v, i) => {
+        if (i == 0) {
+          return `┌  ◦  @${client.decodeJid(v.jid).replace(/@.+/, '')}`
+        } else if (i == data.length - 1) {
+          return `└  ◦  @${client.decodeJid(v.jid).replace(/@.+/, '')}`
+        } else {
+          return `│  ◦  @${client.decodeJid(v.jid).replace(/@.+/, '')}`
+        }
+      }).join('\n')
+      m.reply(text + '\n\n' + global.footer)
     }else if (command === 'listblock') {
      	var block = await client.fetchBlocklist()                    
 		client.reply(m.chat, 'List Block:\n\n' + `Total: ${block == undefined ? '*0* Diblokir' : '*' + block.length + '* Diblokir'}\n` + block.map(v => '乂 @' + v.replace(/@.+/, '')).join`\n`, m, { mentions: block })
